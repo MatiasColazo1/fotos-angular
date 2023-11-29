@@ -4,15 +4,20 @@
             Subir una foto
         </div>
         <div class="card-body">
-            <form>
+            <form (submit)="subirFoto(titulo, descripcion)">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Titulo de la foto" required>
+                    <input type="text" class="form-control" placeholder="Titulo de la foto" required #titulo>
                 </div>
                 <div class="mb-3">
-                    <textarea rows="2" class="form-control" placeholder="Descripción de la foto" required></textarea>
+                    <textarea rows="2" class="form-control" placeholder="Descripción de la foto" required #descripcion></textarea>
                 </div>
                 <input type="file" class="d-none" (change)="onFotoSelected($event)" #fotoInput>
                 <img [src]="fotoSelected || '../../../assets/no-imagen.png'" class="img-fluid" alt="No imagen" (click)="fotoInput.click()">
+                <div class="d-grid">
+                    <button class="btn btn-primary">
+                        Subir
+                    </button>
+                </div>
             </form>
         </div>
     </div>
